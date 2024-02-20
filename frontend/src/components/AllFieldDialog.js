@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from '@mui/material';
 import UserListItem from "./UserListItem";
 import BankListItem from "./BankListItem";
-import ListItem from "../utils";
-
+import {BASE_URL} from '../constant'
 
 const AllFieldDialog = ({ globalField, id, onClose, onEditSuccess }) => {
   const [open, setOpen] = React.useState(false);
@@ -19,7 +18,7 @@ let [data, setData] = useState([])
     }));
   };
   const handleAdd =async () => {
-     await fetch(`/api/${globalField}/append/${id}/${editData["id"]}/`, {
+     await fetch(BASE_URL+`/api/${globalField}/append/${id}/${editData["id"]}/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -40,14 +39,19 @@ let [data, setData] = useState([])
   };
 
     let getData = async () => {
-        let response = await fetch(`/api/${globalField}/child/${id}`)
+        let response = await fetch(BASE_URL+`/api/${globalField}/child/${id}`,{
+            method: 'GET',
+             'Access-Control-Allow-Origin': "*",
+            'Access-Control-Allow-Credentials': 'true',
+        })
         let data = await response.json()
         setData(data)
     }
 
      const handleDelete =async (item_id) => {
-     await fetch(`/api/${globalField}/delete/${id}/${item_id}/`, {
+     await fetch(BASE_URL+`/api/${globalField}/delete/${id}/${item_id}/`, {
     method: 'DELETE',
+         mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json'
     }

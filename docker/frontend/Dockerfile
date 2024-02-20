@@ -1,9 +1,10 @@
 FROM node:alpine
 
-WORKDIR /Bank-user/frontend
+WORKDIR /frontend
 
-COPY ./Bank-user/frontend .
+COPY ./frontend .
 
 RUN npm install
 
-CMD [ "npm", "run", "deploy" ]
+
+CMD [ "npm", "start","build" ]

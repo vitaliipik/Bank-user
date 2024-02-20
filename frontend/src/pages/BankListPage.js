@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import BankListItem from "../components/BankListItem";
 import AddDialog from "../components/AddDialog";
-
+import {BASE_URL} from '../constant'
 
 const BankListPage = () => {
 
@@ -37,7 +37,7 @@ const BankListPage = () => {
         setBanks(updatedBanks);
     };
     let getBanks = async () => {
-        let response = await fetch('/api/banks/')
+        let response = await fetch(BASE_URL+'/api/banks/')
         let data = await response.json()
         setBanks(data)
     }

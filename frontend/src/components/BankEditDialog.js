@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from '@mui/material';
-
+import {BASE_URL} from '../constant'
 
 const BankEditDialog = ({ bankId, onClose, onEditSuccess }) => {
   const [open, setOpen] = React.useState(false);
@@ -13,7 +13,7 @@ const BankEditDialog = ({ bankId, onClose, onEditSuccess }) => {
     }));
   };
   const handleEdit =async () => {
-     await fetch(`/api/banks/${bankId}/edit/`, {
+     await fetch(BASE_URL+`/api/banks/${bankId}/edit/`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'

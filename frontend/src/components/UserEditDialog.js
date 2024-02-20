@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from '@mui/material';
-
+import {BASE_URL} from '../constant'
 
 const UserEditDialog = ({ userId, onClose, onDeleteSuccess, onEditSuccess }) => {
   const [open, setOpen] = React.useState(false);
@@ -13,7 +13,7 @@ const UserEditDialog = ({ userId, onClose, onDeleteSuccess, onEditSuccess }) => 
     }));
   };
   const handleEdit =async () => {
-     await fetch(`/api/users/${userId}/edit/`, {
+     await fetch(BASE_URL+`/api/users/${userId}/edit/`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'

@@ -1,14 +1,12 @@
-// UserActions.js
-
 import React from 'react';
-import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from '@mui/material';
-
+import {Button, Dialog, DialogActions, DialogTitle} from '@mui/material';
+import {BASE_URL} from '../constant'
 
 const DeleteDialog = ({ globalField,id, onClose, onDeleteSuccess }) => {
   const [open, setOpen] = React.useState(false);
 
   const handleDelete = () => {
-   fetch(`/api/${globalField}/${id}/`, {
+   fetch(BASE_URL+`/api/${globalField}/${id}/`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'

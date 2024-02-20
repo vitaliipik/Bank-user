@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import UserListItem from "../components/UserListItem";
 import AddDialog from "../components/AddDialog";
-
+import {BASE_URL} from '../constant'
 
 const UsersListPage = () => {
 
@@ -35,7 +35,8 @@ const UsersListPage = () => {
     setUsers(updatedUsers);
   };
     let getUsers = async () => {
-        let response = await fetch('/api/users/')
+        console.log(BASE_URL)
+        let response = await fetch(BASE_URL+'/api/users/')
         let data = await response.json()
         setUsers(data)
     }
