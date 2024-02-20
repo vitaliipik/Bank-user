@@ -14,7 +14,7 @@ const AddDialog = ({globalField, onClose, onAddSuccess}) => {
     };
 
     const handleAdd = async () => {
-        await fetch(`${BASE_URL}/api/${globalField}/new/${editData["amount"]}/`, {
+        await fetch(BASE_URL+`/${globalField}/new/${editData["amount"]}/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

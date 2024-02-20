@@ -8,6 +8,8 @@ services:
       dockerfile: docker/backend/Dockerfile
     ports:
       - "8000:8000"
+    networks:
+      - frontend_some-net
     env_file:
       - ./.env
     depends_on:
@@ -18,6 +20,8 @@ services:
     image: postgres:15-alpine
     ports:
       - "5432:5432"
+    networks:
+      - frontend_some-net
     env_file:
       - ./.env
     volumes:
@@ -30,11 +34,16 @@ services:
       dockerfile: docker/frontend/Dockerfile
     ports:
       - "3000:3000"
+    networks:
+      - frontend_some-net
     volumes:
       - node_modules:/Bank-user/frontend/node_modules
     env_file:
       - ./.env
 
+networks:
+  frontend_some-net:
+       driver: bridge
 
 volumes:
   db-data:

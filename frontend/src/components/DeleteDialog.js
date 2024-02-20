@@ -6,7 +6,7 @@ const DeleteDialog = ({ globalField,id, onClose, onDeleteSuccess }) => {
   const [open, setOpen] = React.useState(false);
 
   const handleDelete = () => {
-   fetch(BASE_URL+`/api/${globalField}/${id}/`, {
+   fetch(BASE_URL+`/${globalField}/${id}/`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'

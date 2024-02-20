@@ -37,7 +37,7 @@ const BankListPage = () => {
         setBanks(updatedBanks);
     };
     let getBanks = async () => {
-        let response = await fetch(BASE_URL+'/api/banks/')
+        let response = await fetch(BASE_URL+'/banks/')
         let data = await response.json()
         setBanks(data)
     }

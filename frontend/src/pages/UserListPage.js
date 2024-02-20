@@ -35,8 +35,7 @@ const UsersListPage = () => {
     setUsers(updatedUsers);
   };
     let getUsers = async () => {
-        console.log(BASE_URL)
-        let response = await fetch(BASE_URL+'/api/users/')
+        let response = await fetch(BASE_URL+'/users/')
         let data = await response.json()
         setUsers(data)
     }

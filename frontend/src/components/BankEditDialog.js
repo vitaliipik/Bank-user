@@ -13,7 +13,7 @@ const BankEditDialog = ({ bankId, onClose, onEditSuccess }) => {
     }));
   };
   const handleEdit =async () => {
-     await fetch(BASE_URL+`/api/banks/${bankId}/edit/`, {
+     await fetch(BASE_URL+`/banks/${bankId}/edit/`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'

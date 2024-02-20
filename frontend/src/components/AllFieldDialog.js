@@ -18,7 +18,7 @@ let [data, setData] = useState([])
     }));
   };
   const handleAdd =async () => {
-     await fetch(BASE_URL+`/api/${globalField}/append/${id}/${editData["id"]}/`, {
+     await fetch(BASE_URL+`/${globalField}/append/${id}/${editData["id"]}/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ let [data, setData] = useState([])
   };
 
     let getData = async () => {
-        let response = await fetch(BASE_URL+`/api/${globalField}/child/${id}`,{
+        let response = await fetch(BASE_URL+`/${globalField}/child/${id}`,{
             method: 'GET',
              'Access-Control-Allow-Origin': "*",
             'Access-Control-Allow-Credentials': 'true',
@@ -49,7 +49,7 @@ let [data, setData] = useState([])
     }
 
      const handleDelete =async (item_id) => {
-     await fetch(BASE_URL+`/api/${globalField}/delete/${id}/${item_id}/`, {
+     await fetch(BASE_URL+`/${globalField}/delete/${id}/${item_id}/`, {
     method: 'DELETE',
          mode: 'no-cors',
     headers: {

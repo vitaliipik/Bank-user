@@ -13,7 +13,7 @@ const UserEditDialog = ({ userId, onClose, onDeleteSuccess, onEditSuccess }) => 
     }));
   };
   const handleEdit =async () => {
-     await fetch(BASE_URL+`/api/users/${userId}/edit/`, {
+     await fetch(BASE_URL+`/users/${userId}/edit/`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
